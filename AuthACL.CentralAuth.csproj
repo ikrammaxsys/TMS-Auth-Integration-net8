@@ -7,8 +7,8 @@
     <Description>Central authentication integration kit providing JWT validation, token refresh, and browser route protection for ASP.NET Core 8+ applications</Description>
     <PackageTags>authentication;jwt;aspnetcore;central-auth</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageProjectUrl>https://github.com/your-org/central-auth-integration-kit</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/your-org/central-auth-integration-kit</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/ikrammaxsys/TMS-Auth-Integration-net8</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ikrammaxsys/TMS-Auth-Integration-net8</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

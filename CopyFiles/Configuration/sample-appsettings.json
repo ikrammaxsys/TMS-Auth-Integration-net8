@@ -1,0 +1,57 @@
+{
+  "Jwt": {
+    // Path to RSA public key PEM file for JWT signature validation
+    "RsaKeyPath": "keys/public.pem",
+    
+    // Expected JWT issuer (must match central auth service)
+    "Issuer": "authapi",
+    
+    // Expected JWT audience (must match central auth service)
+    "Audience": "authapi-client",
+    
+    // Access token expiration in minutes (for reference only, actual expiration is set by central auth service)
+    "AccessTokenExpiryMinutes": 15,
+    
+    // Refresh token expiration in days (for reference only, actual expiration is set by central auth service)
+    "RefreshTokenExpiryDays": 7
+  },
+  "Auth": {
+    // Central auth service base URL
+    "BaseUrl": "https://auth.example.com",
+    
+    // Logout API endpoint path
+    "LogoutApiUrl": "/api/auth/logout",
+    
+    // Token verification endpoint path (with redirect URL support)
+    "VerifyTokenUrl": "/api/auth/verify-token-with-redirect",
+    
+    // Auth-code exchange endpoint path
+    "ExchangeAuthCodeUrl": "/api/auth/exchange-auth-code",
+    
+    // Token refresh endpoint path
+    "RefreshTokenApiUrl": "/api/auth/refresh-token",
+    
+    // Optional: User info endpoint URL template (use {userId} placeholder)
+    "UserInfoUrl": "https://auth.example.com/api/users/{userId}",
+    
+    // Cookie name for access token storage (default: authacl_access_token)
+    "AccessTokenStorageKey": "authacl_access_token",
+    
+    // Cookie name for refresh token storage (default: authacl_refresh_token)
+    "RefreshTokenStorageKey": "authacl_refresh_token",
+    
+    // Include grantType field in refresh token request (default: false)
+    "RefreshTokenRequestUsesGrantType": false,
+    
+    // Enable ACL gate session check in AclProtectedWebController (default: true)
+    "RequireAclCheck": true
+  },
+  "Vasp": {
+    // Portal base URL for redirect after logout or session expiration
+    "BaseUrl": "https://portal.example.com"
+  },
+  "App": {
+    // Optional: System name for display in views
+    "SystemName": "Your System Name"
+  }
+}
