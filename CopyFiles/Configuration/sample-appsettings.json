@@ -1,4 +1,9 @@
 {
+  "App": {
+    // Base url for project 
+    "BaseUrl": "http://localhost:1234",
+  },
+  
   "Jwt": {
     // Path to RSA public key PEM file for JWT signature validation
     "RsaKeyPath": "keys/public.pem",

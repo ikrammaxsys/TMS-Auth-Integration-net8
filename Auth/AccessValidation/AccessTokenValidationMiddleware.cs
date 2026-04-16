@@ -32,10 +32,11 @@ public sealed class AccessTokenValidationMiddleware
         var tokenKey = configuration["Auth:AccessTokenStorageKey"] ?? "authacl_access_token";
         var refreshKey = configuration["Auth:RefreshTokenStorageKey"] ?? "authacl_refresh_token";
         var token = context.Request.Cookies[tokenKey] ?? context.Request.Query["access_token"].ToString();
+        var appBaseUrl = configuration["App:BaseUrl"] ?? "";
 
         if (string.IsNullOrWhiteSpace(token))
         {
-            context.Response.Redirect("/Home/SessionExpired");
+            context.Response.Redirect(appBaseUrl + "/Home/SessionExpired");
             return;
         }
 
@@ -76,7 +77,7 @@ public sealed class AccessTokenValidationMiddleware
             }
         }
 
-        context.Response.Redirect("/Home/SessionExpired");
+        context.Response.Redirect(appBaseUrl + "/Home/SessionExpired");
     }
 
     private static bool ShouldSkipTokenCheck(PathString path)
@@ -84,6 +85,7 @@ public sealed class AccessTokenValidationMiddleware
         return path.StartsWithSegments("/api", StringComparison.OrdinalIgnoreCase)
             || path.StartsWithSegments("/", StringComparison.OrdinalIgnoreCase)
             || path.StartsWithSegments("/ACLChecking", StringComparison.OrdinalIgnoreCase)
-            || path.StartsWithSegments("/Home/SessionExpired", StringComparison.OrdinalIgnoreCase);
+            || path.StartsWithSegments("/Home/SessionExpired", StringComparison.OrdinalIgnoreCase)
+            || path.StartsWithSegments("/Login", StringComparison.OrdinalIgnoreCase);
     }
 }
